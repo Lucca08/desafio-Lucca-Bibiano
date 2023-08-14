@@ -43,7 +43,8 @@ function promptForItems() {
 promptForItems();
 
 //////////////////////////////////////////////
-//1.use node cli.js                         //
-//2.coloque item,quantidade;item,quantidade //
-//3.coloque metodo de pagamento             //
+//1.vá para o diretorio src                 //
+//2.use node cli.js                         //
+//3.coloque item,quantidade;item,quantidade //
+//4.coloque metodo de pagamento             //
 //////////////////////////////////////////////
