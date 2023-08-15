@@ -1,6 +1,27 @@
+import { Cardapio } from './Cardapio.js';
+const cardapio = new Cardapio();
+const listaDeItens = cardapio.getItens();
 
-let carrinho = [];
+const menu = document.getElementById('menu');
+const itensCarrinho = document.getElementById('itens-carrinho');
+const totalElement = document.getElementById('total');
+const realizarPedidoButton = document.getElementById('realizar-pedido');
+
+// Ao clicar no botão "Adicionar ao Carrinho"
+const botoesAdicionar = document.querySelectorAll(".adicionar-ao-carrinho");
+
+let carrinho = []; // Defina a variável carrinho como uma array vazia
 let totalCompra = 0;
+
+botoesAdicionar.forEach(botao => {
+    botao.addEventListener("click", () => {
+        const nome = botao.getAttribute("data-nome");
+        const preco = botao.getAttribute("data-preco");
+
+        // Chame a função para adicionar o item ao carrinho
+        adicionarAoCarrinho(nome, preco);
+    });
+});
 
 function adicionarAoCarrinho(nome, preco) {
     const itemCarrinho = document.createElement("li");
@@ -8,33 +29,10 @@ function adicionarAoCarrinho(nome, preco) {
     itensCarrinho.appendChild(itemCarrinho);
 
     const precoItem = parseFloat(preco);
-    totalCarrinho += precoItem;
-    totalElement.textContent = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+    totalCompra += precoItem;
+    totalElement.textContent = `Total: R$ ${totalCompra.toFixed(2)}`;
 }
 
-// Ao clicar no botão "Adicionar ao Carrinho"
-const botoesAdicionar = document.querySelectorAll(".adicionar-ao-carrinho");
-
-botoesAdicionar.forEach(botao => {
-    botao.addEventListener("click", () => {
-        const item = botao.parentElement;
-        const nome = item.dataset.nome;
-        const preco = item.dataset.preco;
-
-        // Chame a função para adicionar o item ao carrinho
-        adicionarAoCarrinho(nome, preco);
-    });
-});
-
-function renderizarCarrinho() {
-    itensCarrinho.innerHTML = '';
-    carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-        itensCarrinho.appendChild(li);
-    });
-    total.textContent = `Total: R$ ${totalCompra.toFixed(2)}`;
-}
 
 realizarPedidoButton.addEventListener('click', () => {
     alert('Pedido realizado com sucesso!');
