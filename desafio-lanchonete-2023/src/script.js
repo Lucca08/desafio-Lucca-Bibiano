@@ -1,8 +1,3 @@
-import { Cardapio } from './Cardapio.js';
-const cardapio = new Cardapio();
-const listaDeItens = cardapio.getItens();
-
-listaDeItens.forEach(criarItemCardapio);
 
 let carrinho = [];
 let totalCompra = 0;
