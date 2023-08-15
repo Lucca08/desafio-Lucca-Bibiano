@@ -3,7 +3,6 @@ import { CardapioItem } from './CardapioItem.js';
 
 class Cardapio {
     constructor() {
-        // Cria um mapa que associa códigos de itens a instâncias de CardapioItem
         this._itensMap = new Map([
         ['cafe', new CardapioItem('cafe', 'Café', 3.00)],
         ['chantily', new CardapioItem('chantily', 'Chantily (extra do Café)', 1.50)],
@@ -16,12 +15,11 @@ class Cardapio {
         ]);
     }
 
-    // Retorna um CardapioItem com base no código fornecido
     getItem(codigo) {
         return this._itensMap.get(codigo);
     }
     
-    // Retorna um array com todos os CardapioItems do cardápio
+    // Retorna um array com todos os itens do cardápio
     getItens() {
         return Array.from(this._itensMap.values());
     }

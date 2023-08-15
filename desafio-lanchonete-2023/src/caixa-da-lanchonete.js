@@ -1,11 +1,10 @@
-// Importa as classes FormasDePagamento e Cardapio de seus respectivos módulos
+
 import { FormasDePagamento } from './FormasDePagamento.js';
 import { Cardapio } from './Cardapio.js';
 
-// Classe que representa o caixa da lanchonete
+
 class CaixaDaLanchonete {
     constructor() {
-        // Cria uma instância do Cardapio e FormasDePagamento para uso interno
         this._cardapio = new Cardapio();
         this._formas_de_pagamento = new FormasDePagamento();
     }
@@ -45,10 +44,9 @@ class CaixaDaLanchonete {
             total += itemMenu.valor * quantidadeNumerica
         }
 
-        // Aplica desconto ou acréscimo com base no método de pagamento
         total = this.aplicarDescontoOuAcrescimo(total, metodoDePagamento)
 
-        // Formata o valor total para exibição
+        // Formata 
         return this.formatarValorTotal(total);
     }
 
@@ -67,7 +65,6 @@ class CaixaDaLanchonete {
             default:
                 return 'Forma de pagamento inválida!';
         }
-
         return valor;
     }
    
@@ -97,5 +94,4 @@ class CaixaDaLanchonete {
     }
 }
 
-// Exporta a classe CaixaDaLanchonete para uso em outros módulos
 export { CaixaDaLanchonete };

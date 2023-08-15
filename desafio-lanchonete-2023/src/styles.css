@@ -1,0 +1,87 @@
+/* Define o estilo base do corpo da página */
+body {
+  font-family: Arial, sans-serif; /* Define a fonte do texto */
+  margin: 0;
+  padding: 0;
+ 
+}
+
+/* Define o estilo do cabeçalho */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #0d3ff361; /* Define a cor de fundo */
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Define o estilo do menu de itens do cardápio */
+#menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#item{
+  display: flex;
+  width: 100px;
+  height: 100px;
+
+}
+
+
+
+
+.item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+}
+button {
+  background-color: #007bff; /* Define a cor de fundo do botão */
+  color: white; /* Define a cor do texto do botão */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer; /* Define o cursor como ponteiro ao passar o mouse sobre o botão */
+}
+
+/* Define o estilo do carrinho de compras */
+#carrinho {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#itens-carrinho {
+  list-style-type: none;
+  padding: 0;
+}
+
+#total {
+  text-align: right;
+  margin-top: 10px;
+}
+
+#realizar-pedido {
+  background-color: #28a745; /* Define a cor de fundo do botão */
+  color: white; /* Define a cor do texto do botão */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
