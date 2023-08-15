@@ -2,22 +2,6 @@ import { Cardapio } from './Cardapio.js';
 const cardapio = new Cardapio();
 const listaDeItens = cardapio.getItens();
 
-const menu = document.getElementById('menu');
-const itensCarrinho = document.getElementById('itens-carrinho');
-const total = document.getElementById('total');
-const realizarPedidoButton = document.getElementById('realizar-pedido');
-function criarItemCardapio(item) {
-    const itemDiv = document.createElement('div');
-    itemDiv.className = 'item';
-    itemDiv.innerHTML = `
-      <h2>${item.nome}</h2>
-      <img class="item-image" src="${item.imagem}" alt="${item.nome}">
-      <p>Preço: R$ ${item.valor.toFixed(2)}</p>
-      <button onclick="adicionarAoCarrinho('${item.nome}', ${item.valor})">Adicionar ao Carrinho</button>
-    `;
-    menu.appendChild(itemDiv);
-  }
-
 listaDeItens.forEach(criarItemCardapio);
 
 let carrinho = [];
