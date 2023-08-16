@@ -22,4 +22,4 @@ Abra o arquivo "index.html" em qualquer navegador web
 E se divirte com o meu CARDAPIO
 
 Queria fazer algo mais completo para poderem explorar o maximo do meu codigo e aprender mais ao mesmo tempo
-Eu amei fazer esse desafio e adoraria poder aprender mais com vocês 
+eu amei fazer esse desafio e adoraria poder aprender mais com vocês 
