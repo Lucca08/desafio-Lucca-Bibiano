@@ -1,4 +1,7 @@
 
+//interface de linha de comando
+
+
 import readline from 'readline';
 import { CaixaDaLanchonete } from './caixa-da-lanchonete.js';
 

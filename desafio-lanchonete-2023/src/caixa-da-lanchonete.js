@@ -40,13 +40,13 @@ class CaixaDaLanchonete {
                 return "Quantidade inválida!"
             }
 
-            // Calcula o total com base no valor do item e quantidade
+            
             total += itemMenu.valor * quantidadeNumerica
         }
 
         total = this.aplicarDescontoOuAcrescimo(total, metodoDePagamento)
 
-        // Formata 
+
         return this.formatarValorTotal(total);
     }
 
@@ -71,7 +71,7 @@ class CaixaDaLanchonete {
     // Formata o valor total para exibição
     formatarValorTotal(valor) {
         if (typeof valor === 'string') {
-            return valor; // Retorna a mensagem de erro diretamente
+            return valor; // Retorna a mensagem de erro 
         }
     
         const valorNumerico = parseFloat(valor);
