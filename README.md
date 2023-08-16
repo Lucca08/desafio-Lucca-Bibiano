@@ -21,5 +21,5 @@ Navegue até o arquivo "index.html"
 Abra o arquivo "index.html" em qualquer navegador web
 e se divirte com o meu CARDÁPIO
 
-Queria fazer algo mais completo para poderem explorar o maximo do meu codigo e aprender mais ao mesmo tempo
+Queria fazer algo mais completo para poder explorar o maximo do meu codigo e aprender mais ao mesmo tempo
 eu amei fazer esse desafio e adoraria poder aprender mais com vocês ❤️❤️❤️
