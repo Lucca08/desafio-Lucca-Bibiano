@@ -1,19 +1,19 @@
 # desafio-Lucca-Bibiano
-#Desafio Start db😎
+# Desafio Start db😎
 
-##Testes de Funcionalidade:
+## Testes de Funcionalidade:
 
 Para testar a funcionalidade do código, execute o seguinte comando no diretório "src":
 Copie o codigo: npm run test
 Isso executará os testes definidos para verificar se o código está funcionando corretamente e sem erros.
 
-##Teste da Interface de Linha de Comando:
+## Teste da Interface de Linha de Comando:
 
 Para testar a interface de linha de comando interativa, use o seguinte comando:
 Copie o codigo: node cli.js
 Isso permite que você insira itens e método de pagamento para calcular o valor total.
 
-##Executar o Cardápio na Web:
+## Executar o Cardápio na Web:
 
 Para visualizar o cardápio da lanchonete no navegador, siga estas etapas:
 Abra a pasta do arquivo do projeto
