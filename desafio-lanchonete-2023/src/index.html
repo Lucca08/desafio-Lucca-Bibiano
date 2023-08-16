@@ -1,73 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lanchonete</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
+        
         <h1>Lanchonete</h1>
+        
         <div id="carrinho">
             <h2>Carrinho de Compras</h2>
             <ul id="itens-carrinho"></ul>
             <p id="total">Total: R$ 0.00</p>
-            <button id="realizar-pedido">Realizar Pedido</button>
+            <button id="realizar-pedido" onclick="realizarPedido()">Realizar Pedido</button>
         </div>
     </header>
+    
     <main id="menu">
         <!-- Adicione os itens e combos aqui -->
-        <div class="item" data-nome="Café" data-preco="3.00" data-imagem="assets/cafe.png">
+        
+        <div class="item" data-nome="cafe" data-preco="3.00" data-imagem="assets/cafe.png">
             <h2>Café</h2>
             <img src="assets/cafe.png" alt="Imagem do Café">
             <p>Preço: R$ 3.00</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('cafe')">Adicionar ao carrinho</button>
         </div>
-        <div class="item" data-nome="Suco Natural" data-preco="1.50" data-imagem="assets/suco.png">
+        
+        
+        
+        <div class="item" data-nome="suco_natural" data-preco="1.50" data-imagem="assets/suco.png">
             <h2>Suco Natural</h2>
             <img src="assets/suco.png" alt="Imagem do Suco Natural">
             <p>Preço: R$ 1.50</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('suco_natural')">Adicionar ao carrinho</button>
         </div>
+        
+        
+        
+        
         <div class="item" data-nome="chantily" data-preco="1.50" data-imagem="assets/chantily.png" alt="Imagem do chantily">
             <h2>chantily</h2>
             <img src="assets/chantily.png" alt="Imagem do Chantily">
             <p>Preço: R$ 1.50</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button class="adicionar-item" data-item="chantily">Adicionar ao carrinho</button>
         </div>
+        
+        
+        
+        
+        
+        
         <div class="item" data-nome="sanduiche" data-preco="6.50" data-imagem="assets/sanduiche.png" alt="Imagem do sanduiche">
             <h2>sanduiche</h2>
             <img src="assets/sanduiche.png" alt="Imagem do sanduiche">
             <p>Preço: R$ 6.50</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('sanduiche')">Adicionar ao carrinho</button>
         </div>
+        
+        
+        
+        
+        
+        
+        
         <div class="item" data-nome="queijo" data-preco="2.00" data-imagem="assets/queijo.png" alt="Imagem do queijo">
             <h2>queijo</h2>
             <img src="assets/queijo.png" alt="Imagem do queijo">
             <p>Preço: R$ 2.00</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button class="adicionar-item" data-item="queijo">Adicionar ao carrinho</button>
         </div>
+        
+        
+        
+        
+        
+        
         <div class="item" data-nome="salgado" data-preco="7.25" data-imagem="assets/salgado.png" alt="Imagem do salgado">
             <h2>salgado</h2>
             <img src="assets/salgado.png" alt="Imagem do salgado">
             <p>Preço: R$ 7.25</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('salgado')">Adicionar ao carrinho</button>
         </div>
+        
+        
+        
+        
         <div class="item" data-nome="Combo1 = 1 Suco e 1 Sanduíche" data-preco="9.50" data-imagem="assets/combo1.png" alt="Imagem do Combo1">
             <h2>Combo1 = 1 Suco e 1 Sanduíche</h2>
             <img src="assets/combo1.png" alt="Imagem do combo1">
             <p>Preço: R$ 9.50</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('combo1')">Adicionar ao carrinho</button>
         </div>
+        
+
+
+
+
+        
         <div class="item" data-nome="Combo2 = 1 Café e 1 Sanduíche" data-preco="7.50" data-imagem="assets/combo2.png" alt="Imagem do Combo2">
             <h2>Combo2 = 1 Café e 1 Sanduíche</h2>
             <img src="assets/combo2.png" alt="Imagem do combo2">
             <p>Preço: R$ 7.50</p>
-            <button class="adicionar-ao-carrinho">Adicionar ao Carrinho</button>
+            <button onclick="addItem('combo2')">Adicionar ao carrinho</button>
         </div>
-        <!-- Adicione mais itens e combos aqui -->
-    </main>
-    <script type="module" src="script.js"></script>
+        
+        
+    <script>
+        const carrinho = [];
+        let cafeAdicionado = false;
+        let sanduicheAdicionado = false;
+        const cardapio = {
+            cafe: { descricao: 'Café', valor: 3.00 },
+            chantily: { descricao: 'Chantily (extra do Café)', valor: 1.50 },
+            suco_natural: { descricao: 'Suco Natural', valor: 6.20 },
+            sanduiche: { descricao: 'Sanduíche', valor: 6.50 },
+            queijo: { descricao: 'Queijo (extra do Sanduíche)', valor: 2.00 },
+            salgado: { descricao: 'Salgado', valor: 7.25 },
+            combo1: { descricao: '1 Suco e 1 Sanduíche', valor: 9.50 },
+            combo2: { descricao: '1 Café e 1 Sanduíche', valor: 7.50 }
+            };
+
+            const adicionarItemButtons = document.querySelectorAll('.adicionar-item');
+            adicionarItemButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const nomeItem = this.getAttribute('data-item');
+                    addItem(nomeItem);
+                });
+            });
+            
+            function addItem(nomeItem) {
+                const item = cardapio[nomeItem];
+                if (item) {
+                    if (nomeItem === 'chantily' && !cafeAdicionado) {
+                        alert("Adicione um café ao carrinho primeiro.");
+                        return;
+                    }
+                    if (nomeItem === 'queijo' && !sanduicheAdicionado) {
+                        alert("Adicione um sanduíche ao carrinho primeiro.");
+                        return;
+                    }
+            
+                    const index = carrinho.findIndex(i => i.nomeItem === nomeItem);
+                    if (index !== -1) {
+                        carrinho[index].quantidade += 1;
+                    } else {
+                        carrinho.push({ ...item, quantidade: 1 });
+                    }
+            
+                    if (nomeItem === 'cafe') {
+                        cafeAdicionado = true;
+                        document.querySelector("[data-nome='chantily'] button").removeAttribute('disabled');
+                    }
+                    if (nomeItem === 'sanduiche') {
+                        sanduicheAdicionado = true;
+                        document.querySelector("[data-nome='queijo'] button").removeAttribute('disabled');
+                    }
+            
+                    
+                    atualizarCarrinho();
+                }
+            }
+
+            function removerItem(descricao) {
+                const index = carrinho.findIndex(item => item.descricao === descricao);
+                if (index !== -1) {
+                    const itemRemovido = carrinho.splice(index, 1)[0];
+            
+                    if (itemRemovido.descricao === 'sanduiche') {
+                        const queijoIndex = carrinho.findIndex(item => item.descricao === 'queijo');
+                        if (queijoIndex !== -1) {
+                            carrinho.splice(queijoIndex, 1);
+                        }
+                    }
+            
+                    atualizarCarrinho();
+                }
+            }
+            
+            function atualizarCarrinho() {
+                const itensCarrinhoElement = document.getElementById('itens-carrinho');
+                const totalElement = document.getElementById('total');
+            
+                itensCarrinhoElement.innerHTML = '';
+                const itemQuantidades = {};
+            
+                let total = 0;
+            
+                for (const item of carrinho) {
+                    if (!itemQuantidades[item.descricao]) {
+                        itemQuantidades[item.descricao] = { valor: item.valor, quantidade: item.quantidade };
+                    } else {
+                        itemQuantidades[item.descricao].quantidade += item.quantidade;
+                    }
+            
+                    total += item.valor * item.quantidade;
+                }
+            
+                for (const descricao in itemQuantidades) {
+                    const itemLi = document.createElement('li');
+                    const itemInfo = itemQuantidades[descricao];
+            
+                    // Crie o botão "Remover" para cada item no carrinho
+                    const removerButton = document.createElement('button');
+                    removerButton.textContent = 'Remover';
+                    removerButton.addEventListener('click', function() {
+                        removerItem(descricao);
+                    });
+            
+                    itemLi.textContent = `${descricao} - R$ ${itemInfo.valor.toFixed(2)} x${itemInfo.quantidade}`;
+                    itemLi.appendChild(removerButton);
+            
+                    itensCarrinhoElement.appendChild(itemLi);
+                }
+            
+                totalElement.textContent = 'Total: R$ ' + total.toFixed(2);
+            }
+
+
+            function realizarPedido() {
+                const sanduicheIndex = carrinho.findIndex(item => item.descricao === 'sanduiche');
+                const cafeIndex = carrinho.findIndex(item => item.descricao === 'cafe');
+            
+                if (sanduicheIndex !== -1 && (carrinho[sanduicheIndex].quantidade > 1 || cafeIndex !== -1)) {
+                    const confirmacao = window.confirm("Você tem um sanduíche no carrinho com extras. Deseja remover o sanduíche e seus extras?");
+            
+                    if (confirmacao) {
+                        carrinho.splice(sanduicheIndex, 1);
+                        if (cafeIndex !== -1) {
+                            carrinho.splice(cafeIndex, 1);
+                        }
+                    }
+                }
+            
+                // Aqui você pode redirecionar para a página de pagamento ou realizar outras ações relacionadas ao pedido.
+            }
+            
+            
+            
+                
+
+
+
+    </script>
 </body>
 </html>

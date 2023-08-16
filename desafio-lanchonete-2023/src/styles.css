@@ -38,7 +38,7 @@ h1 {
 
 
 .item {
-  border: 1px solid #ccc;
+  border: 1px solid #000e0c;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
@@ -49,9 +49,10 @@ h1 {
   width: 100px;
   height: 100px;
 }
+
 button {
-  background-color: #007bff; /* Define a cor de fundo do botão */
-  color: white; /* Define a cor do texto do botão */
+  background-color: #02d9ff; /* Define a cor de fundo do botão */
+  color: rgb(245, 22, 22); /* Define a cor do texto do botão */
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
