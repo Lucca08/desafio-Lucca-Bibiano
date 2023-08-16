@@ -14,6 +14,7 @@ Copie o codigo: node cli.js
 Isso permite que você insira itens e método de pagamento para calcular o valor total.
 
 Executar o Cardápio na Web:
+
 Para visualizar o cardápio da lanchonete no navegador, siga estas etapas:
 Abra a pasta do arquivo do projeto
 Navegue até o arquivo "index.html"
